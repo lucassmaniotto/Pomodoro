@@ -18,6 +18,7 @@ export function Pomodoro(props: Props): JSX.Element {
 
   useEffect(() => {
     if (working) document.body.classList.add('working');
+    if (resting) document.body.classList.remove('working');
   }, [working]);
 
   useInterval(
@@ -30,6 +31,19 @@ export function Pomodoro(props: Props): JSX.Element {
   const configWork = () => {
     setTimeCounting(true);
     setWorking(true);
+    setResting(false);
+    setMainTime(props.pomodoroTime);
+  };
+
+  const configRest = (long: boolean) => {
+    setTimeCounting(true);
+    setWorking(false);
+    setResting(true);
+    if (long) {
+      setMainTime(props.longRestTime);
+    } else {
+      setMainTime(props.shortRestTime);
+    }
   };
 
   return (
@@ -40,8 +54,9 @@ export function Pomodoro(props: Props): JSX.Element {
         <Timer mainTime={mainTime} />
         <div className="controls">
           <Button text="Trabalhar" onClick={() => configWork()} />
-          <Button text="Descansar" onClick={() => console.log('teste')} />
+          <Button text="Descansar" onClick={() => configRest(false)} />
           <Button
+            className={!working && !resting ? 'hidden' : ''}
             text={timeCounting ? 'Pause' : 'Play'}
             onClick={() => setTimeCounting(!timeCounting)}
           />
