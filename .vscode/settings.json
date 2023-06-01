@@ -1,7 +1,4 @@
 {
-  "code-runner.executorMap": {
-    "typescript": "clear && npx ts-node --files --transpile-only",
-  },
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
