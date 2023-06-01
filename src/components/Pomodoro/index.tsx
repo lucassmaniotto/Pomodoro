@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import useInterval from '../../hooks/use-interval';
 import { Button } from '../Button';
 import { Timer } from '../Timer';
+import { secondsToTime } from '../../util/seconds-to-time';
 const bellStart = require('../../sounds/bell-start.mp3');
 const bellFinish = require('../../sounds/bell-finish.mp3');
 
@@ -21,11 +22,10 @@ export function Pomodoro(props: Props): JSX.Element {
   const [timeCounting, setTimeCounting] = useState(false);
   const [working, setWorking] = useState(false);
   const [resting, setResting] = useState(false);
-
-  useEffect(() => {
-    if (working) document.body.classList.add('working');
-    if (resting) document.body.classList.remove('working');
-  }, [working]);
+  const [cycles, setCycles] = useState(new Array(props.cycles - 1).fill(true));
+  const [completedCycles, setCompletedCycles] = useState(0);
+  const [fullWorkingTime, setFullWorkingTime] = useState(0);
+  const [numberOfPomodoros, setNumberOfPomodoros] = useState(0);
 
   useInterval(
     () => {
@@ -55,6 +55,39 @@ export function Pomodoro(props: Props): JSX.Element {
     audioStopWorking.play();
   };
 
+  useEffect(() => {
+    if (working) document.body.classList.add('working');
+    if (resting) document.body.classList.remove('working');
+    if (mainTime > 0) return;
+    if (working && cycles.length > 0) {
+      configRest(false);
+      cycles.pop();
+    } else if (working && cycles.length <= 0) {
+      configRest(true);
+      setCycles(new Array(props.cycles - 1).fill(true));
+      setCompletedCycles(completedCycles + 1);
+    }
+
+    if (working) {
+      setNumberOfPomodoros(numberOfPomodoros + 1);
+      setFullWorkingTime(fullWorkingTime + props.pomodoroTime);
+    }
+    if (resting) configWork();
+  }, [
+    working,
+    resting,
+    mainTime,
+    configRest,
+    setCycles,
+    configWork,
+    cycles,
+    numberOfPomodoros,
+    props.cycles,
+    completedCycles,
+    fullWorkingTime,
+    props.pomodoroTime,
+  ]);
+
   return (
     <>
       <div className="pomodoro">
@@ -74,10 +107,10 @@ export function Pomodoro(props: Props): JSX.Element {
         </div>
       </div>
       <div className="details">
-        <p>Ciclos concluídos: 0</p>
-        <p>Horas trabalhadas: 00:00:00</p>
-        <p>Horas descansadas: 00:00:00</p>
-        <p>Próximo ciclo: Trabalho</p>
+        <p>Ciclos concluídos: {completedCycles}</p>
+        <p>Horas trabalhadas: {secondsToTime(fullWorkingTime)}</p>
+        <p>Pomodoros concluídos: {numberOfPomodoros}</p>
+        <p>Próximo ciclo: {working ? 'Descanso' : 'Trabalho'}</p>
       </div>
     </>
   );
