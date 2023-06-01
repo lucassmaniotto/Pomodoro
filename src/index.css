@@ -1,10 +1,146 @@
+:root {
+  --first-color: #530C0C;
+  --second-color: #8F0E0E;
+  --third-color: #FA7E0A;
+  --fourth-color: #F7F6DE;
+  --title-font-family: 'Poppins', sans-serif;
+  --subtitle-font-family: 'Rasa', serif;
+  --text-font-family: 'Nunito Sans', sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   outline: none;
   box-sizing: border-box;
+  transition: all 1s ease-in-out;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: var(--text-font-family);
+  background-color: var(--first-color);
+  color: var(--fourth-color);
+  line-height: 1.5;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.pomodoro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: var(--second-color);
+  box-shadow: 0 0 0 10px var(--first-color) inset , 0 0 0 15px var(--third-color) inset;
+  position: relative;
+}
+
+.pomodoro h2 {
+  font-family: var(--title-font-family);
+  font-size: 22px;
+  color: var(--fourth-color);
+  margin-bottom: 1rem;
+}
+
+.pomodoro h3 {
+  font-family: var(--subtitle-font-family);
+  font-size: 30px;
+  color: var(--fourth-color);
+}
+
+.pomodoro .timer {
+  font-size: 4rem;
+  color: var(--fourth-color);
+}
+
+.pomodoro .controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 0 1rem;
+}
+
+.pomodoro button {
+  background-color: var(--fourth-color);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-family: var(--text-font-family);
+  font-size: 1rem;
+  transition: all 300ms ease-in-out;
+}
+
+.pomodoro button:hover {
+  background-color: var(--second-color);
+  color: var(--fourth-color);
+  box-shadow: 0 0 0 2px var(--fourth-color) inset;
+}
+
+.pomodoro button:focus {
+  outline: none;
+}
+
+.pomodoro button:active {
+  transform: scale(0.90);
+}
+
+.working {
+  background-color: var(--fourth-color);
+  color: var(--first-color);
+}
+
+.working .pomodoro {
+  background-color: var(--third-color);
+  box-shadow: 0 0 0 10px var(--fourth-color) inset , 0 0 0 15px var(--second-color) inset;
+}
+
+.working .pomodoro h2, .working .pomodoro h3, .working .pomodoro .timer {
+  color: var(--first-color);
+}
+
+.working .pomodoro button {
+  background-color: var(--first-color);
+  color: var(--fourth-color);
+}
+
+.working .pomodoro button:hover {
+  background-color: var(--third-color);
+  color: var(--first-color);
+  box-shadow: 0 0 0 2px var(--first-color) inset;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  background-color: var(--second-color);
+  padding: 1rem;
+  border-radius: 15px;
+  color: var(--fourth-color);
+  font-family: var(--text-font-family);
+  font-weight: bold;
+}
+
+.working .details {
+  background-color: var(--third-color);
+  color: var(--first-color);
 }
