@@ -1,13 +1,12 @@
 :root {
   --first-color: #530C0C;
   --second-color: #8F0E0E;
-  --third-color: #fd3838;
+  --third-color: #FF6347;
   --fourth-color: #F7F6DE;
+  --leaves-color: #A8B848;
   --title-font-family: 'Poppins', sans-serif;
   --subtitle-font-family: 'Rasa', serif;
   --text-font-family: 'Nunito Sans', sans-serif;
-  --tomato-color: #FF6347;
-  --leaves-color: #A8B848;
 }
 
 * {
@@ -56,8 +55,7 @@ body {
     );
   background-position: 100% 0, 0 100%;
   background-repeat: no-repeat;
-  background-size: 75%;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+  background-size: 85%;
   position: relative;
 }
 
@@ -65,7 +63,7 @@ body {
   font-family: var(--title-font-family);
   font-size: 22px;
   color: var(--fourth-color);
-  margin-bottom: 1rem;
+  margin: 1.5rem 0 0.5rem 0;
 }
 
 .pomodoro h3 {
@@ -172,12 +170,12 @@ body {
 
 .pomodoroTop {
   background: var(--leaves-color);
-  height: 48px;
+  height: 30px;
   width: 48px;
   border-radius: 48px 0 48px 0;
   position: absolute;
   transform: rotateZ(135deg);
-  top: 75px;
+  top: 95px;
   z-index: 1;
   left: 200px;
   transition: all .2s ease-in-out;
@@ -192,7 +190,7 @@ body {
   position: absolute;
   z-index: 1;
   transform: rotateZ(90deg);
-  top: 36px;
+  top: 25px;
   transition: all .2s ease-in-out;
 }
 
@@ -205,7 +203,7 @@ body {
   position: absolute;
   z-index: 1;
   transform: rotateZ(90deg);
-  top: 0px;
+  top: -10px;
   right: 39px;
   transition: all .2s ease-in-out;
 }
