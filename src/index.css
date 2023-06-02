@@ -14,7 +14,7 @@
   padding: 0;
   outline: none;
   box-sizing: border-box;
-  transition: all 1s ease-in-out;
+  transition: background 1s ease-in-out;
 }
 
 body {
@@ -97,7 +97,7 @@ body {
   border-radius: 15px;
   font-family: var(--text-font-family);
   font-size: 1rem;
-  transition: all 200ms ease-in-out;
+  transition: background 200ms ease-in-out;
 }
 
 .pomodoro button:hover {
@@ -178,7 +178,6 @@ body {
   top: 95px;
   z-index: 1;
   left: 200px;
-  transition: all .2s ease-in-out;
 }
 
 .pomodoroTop::before {
@@ -191,7 +190,6 @@ body {
   z-index: 1;
   transform: rotateZ(90deg);
   top: 25px;
-  transition: all .2s ease-in-out;
 }
 
 .pomodoroTop::after {
@@ -205,5 +203,45 @@ body {
   transform: rotateZ(90deg);
   top: -10px;
   right: 39px;
-  transition: all .2s ease-in-out;
+}
+
+@media screen and (max-width: 450px) {
+  .pomodoro {
+    width: 320px;
+    height: 320px;
+  }
+  .pomodoro h2 {
+    font-size: 18px;
+  }
+  .pomodoro h3 {
+    font-size: 24px;
+  }
+  .pomodoro .timer {
+    font-size: 3rem;
+  }
+  .pomodoro .controls {
+    padding: 0 0.5rem;
+  }
+  .pomodoro button {
+    padding: 0.5rem 0.75rem;
+    min-width: 85px;
+    font-size: 0.9rem;
+  }
+  .details {
+    font-size: 0.9rem;
+  }
+
+  .pomodoroTop {
+    top: 65px;
+    left: 135px;
+  }
+
+  .pomodoroTop::before {
+    top: 15px;
+  }
+
+  .pomodoroTop::after {
+    top: -10px;
+    right: 25px;
+  }
 }
