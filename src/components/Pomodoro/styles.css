@@ -1,0 +1,209 @@
+.pomodoro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background-image:
+    radial-gradient(
+      var(--second-color) 50%,
+      transparent 50%
+    ),
+    radial-gradient(
+      var(--second-color) 50%,
+      transparent 50%
+    );
+  background-position: 100% 0, 0 100%;
+  background-repeat: no-repeat;
+  background-size: 85%;
+  position: relative;
+}
+
+.pomodoroTop {
+  background: var(--leaves-color);
+  height: 30px;
+  width: 48px;
+  border-radius: 48px 0 48px 0;
+  position: absolute;
+  transform: rotateZ(135deg);
+  top: 95px;
+  z-index: 1;
+  left: 200px;
+}
+
+.pomodoroTop::before {
+  content: "";
+  background: var(--leaves-color);
+  height: 48px;
+  width: 48px;
+  border-radius: 48px 0 48px 0;
+  position: absolute;
+  z-index: 1;
+  transform: rotateZ(90deg);
+  top: 25px;
+}
+
+.pomodoroTop::after {
+  content: "";
+  background: var(--leaves-color);
+  height: 48px;
+  width: 48px;
+  border-radius: 48px 0 48px 0;
+  position: absolute;
+  z-index: 1;
+  transform: rotateZ(90deg);
+  top: -10px;
+  right: 39px;
+}
+
+.pomodoro h2 {
+  font-family: var(--title-font-family);
+  font-size: 22px;
+  color: var(--fourth-color);
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.pomodoro h3 {
+  font-family: var(--subtitle-font-family);
+  font-size: 30px;
+  color: var(--fourth-color);
+}
+
+.pomodoro .timer {
+  font-size: 4rem;
+  color: var(--fourth-color);
+}
+
+.pomodoro .controls {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 0 1rem;
+}
+
+.pomodoro button {
+  background-color: var(--fourth-color);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  min-width: 105px;
+  border-radius: 15px;
+  font-family: var(--text-font-family);
+  font-size: 1rem;
+  transition: background 200ms ease-in-out;
+}
+
+.pomodoro button:hover {
+  background-color: var(--second-color);
+  color: var(--fourth-color);
+  box-shadow: 0 0 0 2px var(--fourth-color) inset;
+}
+
+.pomodoro button:focus {
+  outline: none;
+}
+
+.pomodoro button:active {
+  transform: scale(0.90);
+}
+
+.working {
+  background-color: var(--fourth-color);
+  color: var(--first-color);
+}
+
+.working .pomodoro {
+  background-image:
+    radial-gradient(
+      var(--third-color) 50%,
+      transparent 50%
+    ),
+    radial-gradient(
+      var(--third-color) 50%,
+      transparent 50%
+    );
+  background-position: 100% 0, 0 100%;
+  background-repeat: no-repeat;
+  background-size: 85%;
+}
+
+.working .pomodoro h2, .working .pomodoro h3, .working .pomodoro .timer {
+  color: var(--first-color);
+}
+
+.working .pomodoro button {
+  background-color: var(--first-color);
+  color: var(--fourth-color);
+}
+
+.working .pomodoro button:hover {
+  background-color: var(--third-color);
+  color: var(--first-color);
+  box-shadow: 0 0 0 2px var(--first-color) inset;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  background-color: var(--second-color);
+  padding: 1rem;
+  border-radius: 15px;
+  color: var(--fourth-color);
+  font-family: var(--text-font-family);
+  font-weight: bold;
+}
+
+.working .details {
+  background-color: var(--third-color);
+  color: var(--first-color);
+}
+
+@media screen and (max-width: 450px) {
+  .pomodoro {
+    width: 320px;
+    height: 320px;
+  }
+  .pomodoro h2 {
+    font-size: 18px;
+  }
+  .pomodoro h3 {
+    font-size: 24px;
+  }
+  .pomodoro .timer {
+    font-size: 3rem;
+  }
+  .pomodoro .controls {
+    padding: 0 0.5rem;
+  }
+  .pomodoro button {
+    padding: 0.5rem 0.75rem;
+    min-width: 85px;
+    font-size: 0.9rem;
+  }
+  .details {
+    font-size: 0.9rem;
+  }
+
+  .pomodoroTop {
+    top: 65px;
+    left: 135px;
+  }
+
+  .pomodoroTop::before {
+    top: 15px;
+  }
+
+  .pomodoroTop::after {
+    top: -10px;
+    right: 25px;
+  }
+}

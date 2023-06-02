@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React, { useState, useEffect, useCallback } from 'react';
 import useInterval from '../../hooks/use-interval';
-import { Button } from '../Button';
-import { Timer } from '../Timer';
 import { secondsToMinutes } from '../../util/seconds-to-minutes';
 import { secondsToTime } from '../../util/seconds-to-time';
 const bellStart = require('../../sounds/bell-start.mp3');
 const bellFinish = require('../../sounds/bell-finish.mp3');
+
+import { Button } from '../Button';
+import { Timer } from '../Timer';
+
+import './styles.css';
 
 const audioStartWorking = new Audio(bellStart);
 const audioStopWorking = new Audio(bellFinish);
