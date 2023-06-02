@@ -13,11 +13,10 @@ Aplicativo Web que implementa a técnica do Pomodoro, controlando seus ciclos e 
 
 ## Detalhes do projeto
 
-PomoApp foi desenvolvido na linguagem Typescript junto a tecnologia React para implementar uma técnica de gerenciamento de tempo conhecida como [Pomodoro](https://github.com/lucassmaniotto/Pomodoro#-pomodoro), amplamente utilizada como uma abordagem eficaz para aumentar a produtividade e evitar a procrastinação.
+PomoApp foi desenvolvido na linguagem Typescript junto a tecnologia React para implementar uma técnica de gerenciamento de tempo conhecida como [Pomodoro](https://github.com/lucassmaniotto/Pomodoro#-pomodoro), amplamente utilizada como uma abordagem eficaz para aumentar a produtividade e evitar a procrastinação, no qual foi desenvolvido no curso da Udemy de [Luiz Otávio Miranda](https://www.udemy.com/user/luiz-otavio-miranda/), ["Curso de JavaScript e TypeScript do básico ao avançado"](https://www.udemy.com/course/curso-de-javascript-moderno-do-basico-ao-avancado/#instructor-1).
 
 ### ⚙️ Configurando o projeto
 Para que o projeto funcione corretamente, é necessário instalar as dependências do projeto. Para isso, basta executar o comando abaixo no terminal:
-
 ```bash
 npm install
 ```
@@ -51,3 +50,33 @@ O ciclo de trabalho (pomodoro) de 25 minutos seguido por uma pausa curta e depoi
 A técnica Pomodoro é amplamente utilizada como uma abordagem eficaz para aumentar a produtividade, evitar a procrastinação e melhorar a gestão do tempo. Existem até aplicativos e ferramentas online disponíveis que podem ajudá-lo a implementar a técnica Pomodoro em sua rotina diária.
 
 ### 💡 Funcionalidades
+
+#### Ciclos de Pomodoro
+Acessando durante a primeira vez o site, o Pomodoro se encontra em Descanso e marcando 25 minutos no seu contador, informando o próximo ciclo.
+
+<div align="center">
+  <img alt="Estado inicial" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/7c372178-f1c6-45dc-8db5-4edbd8d7f1e1" >
+</div>
+<p>
+  Para o controle de Pomodoros, os ciclos se baseiam em botões de ação. Ao acionar o botão "Trabalhar" um som de sino toca, o contrador de tempo de trabalho começa a contar e incrementar no quadro de informações em "Horas trabalhadas", além de mudar o tema da página para cores mais vivas, mostrando um botão novo que pode ser pausado ou iniciado o contador. Também, o título da página muda para o tempo restante de trabalho, para caso utilize o app em segundo plano, possa ser controlado o tempo de trabalhou ou descanso.
+</p>
+<div align="center">
+  <img alt="Título da pág. - Trabalho" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/c600a911-543a-4eed-bdab-f0833a822295" >
+</div>
+<div align="center">
+  <img alt="Pomodoro - Trabalho" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/830b2767-561e-42a6-a4f9-3ab713488a52" >
+</div>
+<p>
+  Quando o contador de tempo encerra no status de "Trabalhando" um som de sino toca duas vezes informando que o descanso começou. O tema da página e o status mudam novamente, onde o usuário ganha 5 minutos de seu tempo para realizar seu descanso ou outras atividades que não estão relacionadas ao seu tempo de foco. No quadro de informações, "Horas trabalhadas" são pausadas, "Pomodoros concluídos" é incrementado e o próximo ciclo é atualizado para "Trabalho".
+</p>
+<div align="center">
+  <img alt="Pomodoro - Descanso" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/df81d2ca-b0ae-43a6-b47b-70a2c0c546a3" />
+</div>
+<p align="center">
+  Após o usuário terminar 4 Pomodoros, o seu tempo de descanso se torna 15 minutos como recompensa:
+</p>
+<div align="center">
+  <img alt="4 Pomodoros" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/0a33080e-1e2e-498b-9bba-4fad1f7e6300" />
+</div>
+
+
