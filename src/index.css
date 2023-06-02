@@ -131,7 +131,7 @@ body {
     );
   background-position: 100% 0, 0 100%;
   background-repeat: no-repeat;
-  background-size: 75%;
+  background-size: 85%;
 }
 
 .working .pomodoro h2, .working .pomodoro h3, .working .pomodoro .timer {

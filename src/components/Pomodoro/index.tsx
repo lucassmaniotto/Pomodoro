@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import useInterval from '../../hooks/use-interval';
 import { Button } from '../Button';
 import { Timer } from '../Timer';
+import { secondsToMinutes } from '../../util/seconds-to-minutes';
 import { secondsToTime } from '../../util/seconds-to-time';
 const bellStart = require('../../sounds/bell-start.mp3');
 const bellFinish = require('../../sounds/bell-finish.mp3');
@@ -30,30 +31,52 @@ export function Pomodoro(props: Props): JSX.Element {
   useInterval(
     () => {
       setMainTime(mainTime - 1);
+      if (working) {
+        document.title = `Trabalhando | ${secondsToMinutes(mainTime)}`;
+        setFullWorkingTime(fullWorkingTime + 1);
+      } else if (resting) {
+        document.title = `Descansando | ${secondsToMinutes(mainTime)}`;
+      }
     },
     timeCounting ? 1000 : null,
   );
 
-  const configWork = () => {
+  const configWork = useCallback(() => {
     setTimeCounting(true);
     setWorking(true);
     setResting(false);
     setMainTime(props.pomodoroTime);
     audioStartWorking.play();
-  };
+  }, [
+    setTimeCounting,
+    setWorking,
+    setResting,
+    setMainTime,
+    props.pomodoroTime,
+  ]);
 
-  const configRest = (long: boolean) => {
-    setTimeCounting(true);
-    setWorking(false);
-    setResting(true);
-    if (long) {
-      setMainTime(props.longRestTime);
-    } else {
-      setMainTime(props.shortRestTime);
-    }
+  const configRest = useCallback(
+    (long: boolean) => {
+      setTimeCounting(true);
+      setWorking(false);
+      setResting(true);
+      if (long) {
+        setMainTime(props.longRestTime);
+      } else {
+        setMainTime(props.shortRestTime);
+      }
 
-    audioStopWorking.play();
-  };
+      audioStopWorking.play();
+    },
+    [
+      setTimeCounting,
+      setWorking,
+      setResting,
+      setMainTime,
+      props.longRestTime,
+      props.shortRestTime,
+    ],
+  );
 
   useEffect(() => {
     if (working) document.body.classList.add('working');
@@ -68,10 +91,7 @@ export function Pomodoro(props: Props): JSX.Element {
       setCompletedCycles(completedCycles + 1);
     }
 
-    if (working) {
-      setNumberOfPomodoros(numberOfPomodoros + 1);
-      setFullWorkingTime(fullWorkingTime + props.pomodoroTime);
-    }
+    if (working) setNumberOfPomodoros(numberOfPomodoros + 1);
     if (resting) configWork();
   }, [
     working,
