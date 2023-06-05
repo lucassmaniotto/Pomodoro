@@ -37,6 +37,30 @@
   text-decoration: underline;
 }
 
+.menu__swal-confirm-button, .menu__swal-cancel-button {
+  background-color: var(--first-color) !important;
+  border: none !important;
+  cursor: pointer;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.5rem !important;
+  min-width: 105px !important;
+  border-radius: 15px !important;
+  font-family: var(--text-font-family);
+  font-size: 1rem;
+  transition: background 200ms ease-in-out;
+}
+
+.menu__swal-confirm-button:hover {
+  background-color: var(--third-color) !important;
+  color: var(--second-color) !important;
+  box-shadow: 0 0 0 2px var(--second-color) inset !important;
+}
+
+.menu__swal-cancel-button {
+  background-color: var(--fourth-color) !important;
+  color: var(--first-color) !important;
+}
+
 .working .menu__nav {
   background-color: var(--first-color);
 }
