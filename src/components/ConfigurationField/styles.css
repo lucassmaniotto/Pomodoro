@@ -1,0 +1,20 @@
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid var(--fourth-color);
+  border-radius: 4px;
+  font-family: var(--text-font-family);
+  font-size: 1rem;
+  transition: border 200ms ease-in-out;
+  width: 60%;
+}
+
+input[value] {
+  text-align: center;
+}

@@ -10,16 +10,15 @@ import { Button } from '../Button';
 import { Timer } from '../Timer';
 
 import './styles.css';
-
-const audioStartWorking = new Audio(bellStart);
-const audioStopWorking = new Audio(bellFinish);
-
 interface Props {
   pomodoroTime: number;
   shortRestTime: number;
   longRestTime: number;
   cycles: number;
 }
+
+const audioStartWorking = new Audio(bellStart);
+const audioStopWorking = new Audio(bellFinish);
 
 export function Pomodoro(props: Props): JSX.Element {
   const [mainTime, setMainTime] = useState(props.pomodoroTime);
@@ -81,6 +80,16 @@ export function Pomodoro(props: Props): JSX.Element {
     ],
   );
 
+  const handleNextCycleInfo = () => {
+    if (working) {
+      if (numberOfPomodoros > 0 && (numberOfPomodoros + 1) % 4 === 0) {
+        return 'Descanso longo';
+      }
+      return 'Descanso curto';
+    }
+    return 'Trabalho';
+  };
+
   useEffect(() => {
     if (working) document.body.classList.add('working');
     if (resting) document.body.classList.remove('working');
@@ -111,15 +120,6 @@ export function Pomodoro(props: Props): JSX.Element {
     props.pomodoroTime,
   ]);
 
-  const handleNextCycleInfo = () => {
-    if (working) {
-      if (numberOfPomodoros > 0 && (numberOfPomodoros + 1) % 4 === 0) {
-        return 'Descanso longo';
-      }
-      return 'Descanso curto';
-    }
-    return 'Trabalho';
-  };
   return (
     <>
       <div className="pomodoro">

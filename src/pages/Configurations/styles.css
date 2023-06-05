@@ -11,7 +11,7 @@ h1 {
   margin-bottom: 1rem;
 }
 
-form {
+.container__form {
   width: 100%;
   max-width: 450px;
   margin: 0 auto;
@@ -22,25 +22,4 @@ form {
   row-gap: 1rem;
   position: absolute;
   top: 370px;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.25rem;
-}
-
-input {
-  padding: 0.5rem;
-  border: 1px solid var(--fourth-color);
-  border-radius: 4px;
-  font-family: var(--text-font-family);
-  font-size: 1rem;
-  transition: border 200ms ease-in-out;
-  width: 60%;
-}
-
-input[value] {
-  text-align: center;
 }
