@@ -16,6 +16,7 @@
   outline: none;
   box-sizing: border-box;
   transition: background 1s ease-in-out;
+  text-decoration: none;
 }
 
 body {
@@ -27,7 +28,6 @@ body {
 
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: 85vh;
   flex-direction: column;
@@ -35,4 +35,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    justify-content: center;
+  }
 }

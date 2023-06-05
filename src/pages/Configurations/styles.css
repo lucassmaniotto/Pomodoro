@@ -1,14 +1,17 @@
 .container__title{
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 1rem 0 0 0;
   position: absolute;
-  top: 120px;
+  top: 125px;
+  font-family: var(--subtitle-font-family);
+  font-size: 1.5rem;
+  padding: 0 1rem;
 }
 
 h1 {
   text-align: center;
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .container__form {
@@ -22,4 +25,17 @@ h1 {
   row-gap: 1rem;
   position: absolute;
   top: 370px;
+}
+
+@media screen and (max-width: 858px) {
+  .container__title{
+    text-align: center;
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  .container__title {
+    font-size: 1.15rem;
+  }
 }

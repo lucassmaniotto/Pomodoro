@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Menu from './components/Menu';
 import Configurations from './pages/Configurations';
+import Footer from './components/Footer';
 
 function AppRoutes() {
   return (
@@ -12,6 +13,7 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/configurations" element={<Configurations />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
