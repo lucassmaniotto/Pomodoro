@@ -1,0 +1,33 @@
+.menu__nav {
+  height: 112px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
+  background-color: var(--fourth-color);
+}
+
+.menu__link {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  text-decoration: none;
+  color: var(--first-color);
+}
+
+.menu__link:hover {
+  text-decoration: underline;
+}
+
+.working .menu__nav {
+  background-color: var(--first-color);
+}
+
+.working .menu__link {
+  color: var(--fourth-color);
+}
+
+@media screen and(max-width: 744px) {
+  .menu {
+    height: 72px;
+  }
+}

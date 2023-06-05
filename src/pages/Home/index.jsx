@@ -1,7 +1,7 @@
 import React from 'react';
-import { Pomodoro } from './components/Pomodoro';
+import { Pomodoro } from '../../components/Pomodoro';
 
-function App() {
+export default function Home() {
   return (
     <div className="container">
       <Pomodoro
@@ -13,5 +13,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
