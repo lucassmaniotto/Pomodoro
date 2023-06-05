@@ -21,14 +21,8 @@ interface Props {
   cycles: number;
 }
 
-function searchLocalStorage(key: string): number {
-  return Number(localStorage.getItem(key)) || 0;
-}
-
 export function Pomodoro(props: Props): JSX.Element {
-  const [mainTime, setMainTime] = useState(
-    searchLocalStorage('pomodoroTime') || props.pomodoroTime,
-  );
+  const [mainTime, setMainTime] = useState(props.pomodoroTime);
   const [timeCounting, setTimeCounting] = useState(false);
   const [working, setWorking] = useState(false);
   const [resting, setResting] = useState(false);
@@ -117,6 +111,15 @@ export function Pomodoro(props: Props): JSX.Element {
     props.pomodoroTime,
   ]);
 
+  const handleNextCycleInfo = () => {
+    if (working) {
+      if (numberOfPomodoros > 0 && (numberOfPomodoros + 1) % 4 === 0) {
+        return 'Descanso longo';
+      }
+      return 'Descanso curto';
+    }
+    return 'Trabalho';
+  };
   return (
     <>
       <div className="pomodoro">
@@ -138,8 +141,8 @@ export function Pomodoro(props: Props): JSX.Element {
       <div className="details">
         <p>Ciclos concluídos: {completedCycles}</p>
         <p>Horas trabalhadas: {secondsToTime(fullWorkingTime)}</p>
-        <p>Pomodoros concluídos: {numberOfPomodoros}</p>
-        <p>Próximo ciclo: {working ? 'Descanso' : 'Trabalho'}</p>
+        <p id="numberOfPomodoros">Pomodoros concluídos: {numberOfPomodoros}</p>
+        <p>Próximo ciclo: {handleNextCycleInfo()}</p>
       </div>
     </>
   );

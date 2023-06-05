@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Pomodoro } from '../../components/Pomodoro';
+import searchLocalStorage from '../../util/search-localStorage';
 
 export default function Home() {
-  const [pomodoroTime, setPomodoroTime] = useState(1500);
-  const [shortRestTime, setShortRestTime] = useState(300);
-  const [longRestTime, setLongRestTime] = useState(900);
-  const [cycles, setCycles] = useState(4);
+  const [pomodoroTime, setPomodoroTime] = useState(
+    searchLocalStorage('pomodoroTime', 1500),
+  );
+  const [shortRestTime, setShortRestTime] = useState(
+    searchLocalStorage('shortRestTime', 300),
+  );
+  const [longRestTime, setLongRestTime] = useState(
+    searchLocalStorage('longRestTime', 900),
+  );
 
   useEffect(() => {
     const storedPomodoroTime = localStorage.getItem('pomodoroTime');
     const storedShortRestTime = localStorage.getItem('shortRestTime');
     const storedLongRestTime = localStorage.getItem('longRestTime');
-    const storedCycles = localStorage.getItem('cycles');
 
     if (storedPomodoroTime) setPomodoroTime(parseInt(storedPomodoroTime));
     if (storedShortRestTime) setShortRestTime(parseInt(storedShortRestTime));
     if (storedLongRestTime) setLongRestTime(parseInt(storedLongRestTime));
-    if (storedCycles) setCycles(parseInt(storedCycles));
   }, []);
 
   return (
@@ -25,7 +29,7 @@ export default function Home() {
         pomodoroTime={pomodoroTime}
         shortRestTime={shortRestTime}
         longRestTime={longRestTime}
-        cycles={cycles}
+        cycles={4}
       />
     </div>
   );

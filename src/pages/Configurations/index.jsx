@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import searchLocalStorage from '../../util/search-localStorage';
 
 export default function Configurations() {
   const [pomodoroTime, setPomodoroTime] = useState(
@@ -10,19 +11,11 @@ export default function Configurations() {
   const [longRestTime, setLongRestTime] = useState(
     searchLocalStorage('longRestTime', 900),
   );
-  const [cycles, setCycles] = useState(searchLocalStorage('cycles', 4));
-
-  function searchLocalStorage(key, defaultValue) {
-    const storedValue = localStorage.getItem(key);
-    if (storedValue) return parseInt(storedValue);
-    return defaultValue;
-  }
 
   const handleSaveConfigurations = () => {
     localStorage.setItem('pomodoroTime', pomodoroTime);
     localStorage.setItem('shortRestTime', shortRestTime);
     localStorage.setItem('longRestTime', longRestTime);
-    localStorage.setItem('cycles', cycles);
   };
 
   return (
@@ -56,18 +49,7 @@ export default function Configurations() {
           />
         </label>
         <br />
-        <label>
-          Cycles:
-          <input
-            type="number"
-            value={cycles}
-            onChange={(e) => setCycles(parseInt(e.target.value))}
-          />
-        </label>
-        <br />
-        <button type="button" onClick={handleSaveConfigurations}>
-          Save Configurations
-        </button>
+        <button onClick={handleSaveConfigurations}>Save Configurations</button>
       </form>
     </div>
   );
