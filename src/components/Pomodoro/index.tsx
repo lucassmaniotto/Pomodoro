@@ -111,6 +111,15 @@ export function Pomodoro(props: Props): JSX.Element {
     props.pomodoroTime,
   ]);
 
+  const handleNextCycleInfo = () => {
+    if (working) {
+      if (numberOfPomodoros > 0 && (numberOfPomodoros + 1) % 4 === 0) {
+        return 'Descanso longo';
+      }
+      return 'Descanso curto';
+    }
+    return 'Trabalho';
+  };
   return (
     <>
       <div className="pomodoro">
@@ -132,8 +141,8 @@ export function Pomodoro(props: Props): JSX.Element {
       <div className="details">
         <p>Ciclos concluídos: {completedCycles}</p>
         <p>Horas trabalhadas: {secondsToTime(fullWorkingTime)}</p>
-        <p>Pomodoros concluídos: {numberOfPomodoros}</p>
-        <p>Próximo ciclo: {working ? 'Descanso' : 'Trabalho'}</p>
+        <p id="numberOfPomodoros">Pomodoros concluídos: {numberOfPomodoros}</p>
+        <p>Próximo ciclo: {handleNextCycleInfo()}</p>
       </div>
     </>
   );
