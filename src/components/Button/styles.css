@@ -1,0 +1,51 @@
+button {
+  background-color: var(--fourth-color);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  min-width: 105px;
+  border-radius: 15px;
+  font-family: var(--text-font-family);
+  font-size: 1rem;
+  transition: background 200ms ease-in-out;
+}
+
+button:hover {
+  background-color: var(--second-color);
+  color: var(--fourth-color);
+  box-shadow: 0 0 0 2px var(--fourth-color) inset;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.90);
+}
+
+.working button {
+  background-color: var(--first-color);
+  color: var(--fourth-color);
+}
+
+.working button:hover {
+  background-color: var(--third-color);
+  color: var(--first-color);
+  box-shadow: 0 0 0 2px var(--first-color) inset;
+}
+
+.button__config {
+  margin: 1rem;
+  width: 60%;
+  justify-self: center;
+}
+
+@media screen and (max-width: 450px) {
+  button {
+    padding: 0.5rem 0.75rem;
+    min-width: 85px;
+    font-size: 0.9rem;
+  }
+}

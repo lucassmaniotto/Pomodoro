@@ -86,33 +86,6 @@
   padding: 0 1rem;
 }
 
-.pomodoro button {
-  background-color: var(--fourth-color);
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  min-width: 105px;
-  border-radius: 15px;
-  font-family: var(--text-font-family);
-  font-size: 1rem;
-  transition: background 200ms ease-in-out;
-}
-
-.pomodoro button:hover {
-  background-color: var(--second-color);
-  color: var(--fourth-color);
-  box-shadow: 0 0 0 2px var(--fourth-color) inset;
-}
-
-.pomodoro button:focus {
-  outline: none;
-}
-
-.pomodoro button:active {
-  transform: scale(0.90);
-}
-
 .working {
   background-color: var(--fourth-color);
   color: var(--first-color);
@@ -135,17 +108,6 @@
 
 .working .pomodoro h2, .working .pomodoro h3, .working .pomodoro .timer {
   color: var(--first-color);
-}
-
-.working .pomodoro button {
-  background-color: var(--first-color);
-  color: var(--fourth-color);
-}
-
-.working .pomodoro button:hover {
-  background-color: var(--third-color);
-  color: var(--first-color);
-  box-shadow: 0 0 0 2px var(--first-color) inset;
 }
 
 .details {
@@ -184,11 +146,7 @@
   .pomodoro .controls {
     padding: 0 0.5rem;
   }
-  .pomodoro button {
-    padding: 0.5rem 0.75rem;
-    min-width: 85px;
-    font-size: 0.9rem;
-  }
+  
   .details {
     font-size: 0.9rem;
   }

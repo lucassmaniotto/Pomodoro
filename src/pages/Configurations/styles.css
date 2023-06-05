@@ -1,0 +1,46 @@
+.container__title{
+  margin-bottom: 1rem;
+  padding: 1rem;
+  position: absolute;
+  top: 120px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+form {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  row-gap: 1rem;
+  position: absolute;
+  top: 370px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid var(--fourth-color);
+  border-radius: 4px;
+  font-family: var(--text-font-family);
+  font-size: 1rem;
+  transition: border 200ms ease-in-out;
+  width: 60%;
+}
+
+input[value] {
+  text-align: center;
+}
