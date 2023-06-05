@@ -21,8 +21,14 @@ interface Props {
   cycles: number;
 }
 
+function searchLocalStorage(key: string): number {
+  return Number(localStorage.getItem(key)) || 0;
+}
+
 export function Pomodoro(props: Props): JSX.Element {
-  const [mainTime, setMainTime] = useState(props.pomodoroTime);
+  const [mainTime, setMainTime] = useState(
+    searchLocalStorage('pomodoroTime') || props.pomodoroTime,
+  );
   const [timeCounting, setTimeCounting] = useState(false);
   const [working, setWorking] = useState(false);
   const [resting, setResting] = useState(false);
