@@ -1,0 +1,8 @@
+{
+  "name": "PomoApp",
+  "short_name": "PomoApp",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#530C0C",
+  "background_color": "#8F0E0E"
+}

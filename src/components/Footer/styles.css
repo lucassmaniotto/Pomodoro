@@ -6,10 +6,6 @@
   align-items: center;
   background-color: var(--fourth-color);
   color: var(--first-color);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
 }
 
 .footer a {
@@ -32,4 +28,13 @@
 
 .working .footer a {
   color: var(--fourth-color);
+}
+
+@media screen and (max-height: 737px) {
+  .footer {
+    position: absolute;
+    /* deve ser menos que a metade da altura do dispositivo */
+    bottom: -450px;
+    width: 100%;
+  }
 }
