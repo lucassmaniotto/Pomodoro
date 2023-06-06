@@ -6,6 +6,10 @@
   align-items: center;
   background-color: var(--fourth-color);
   color: var(--first-color);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 .footer a {
