@@ -34,6 +34,9 @@ Para o desenvolvimento foi utilizado algumas bibliotecas do npm sendo elas:
 * [typescript](https://www.npmjs.com/package/typescript)
 * [eslint](https://www.npmjs.com/package/eslint)
 * [prettier](https://www.npmjs.com/package/prettier)
+* [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+* [sweetalert2](https://www.npmjs.com/package/sweetalert2)
+* [react-icons](https://www.npmjs.com/package/react-icons)
 
 ### 🍅 Pomodoro
 O Pomodoro é uma técnica de gerenciamento de tempo desenvolvida por Francesco Cirillo no final dos anos 1980. O método foi nomeado "Pomodoro" (tomate em italiano) porque Cirillo usou um timer de cozinha em forma de tomate para controlar seu tempo enquanto estudava. O objetivo do método Pomodoro é aumentar a produtividade, dividindo o trabalho em períodos de tempo curtos e cronometrados, chamados de "pomodoros".
