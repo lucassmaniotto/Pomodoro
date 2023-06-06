@@ -55,7 +55,7 @@ A técnica Pomodoro é amplamente utilizada como uma abordagem eficaz para aumen
 Acessando durante a primeira vez o site, o Pomodoro se encontra em Descanso e marcando 25 minutos no seu contador, informando o próximo ciclo.
 
 <div align="center">
-  <img alt="Estado inicial" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/7c372178-f1c6-45dc-8db5-4edbd8d7f1e1" >
+  <img alt="Estado inicial" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/53acf20c-0ef7-470a-8fde-f558ddda9445" >
 </div>
 <p>
   Para o controle de Pomodoros, os ciclos se baseiam em botões de ação. Ao acionar o botão "Trabalhar" um som de sino toca, o contrador de tempo de trabalho começa a contar e incrementar no quadro de informações em "Horas trabalhadas", além de mudar o tema da página para cores mais vivas, mostrando um botão novo que pode ser pausado ou iniciado o contador. Também, o título da página muda para o tempo restante de trabalho, para caso utilize o app em segundo plano, possa ser controlado o tempo de trabalhou ou descanso.
@@ -79,4 +79,24 @@ Acessando durante a primeira vez o site, o Pomodoro se encontra em Descanso e ma
   <img alt="4 Pomodoros" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/0a33080e-1e2e-498b-9bba-4fad1f7e6300" />
 </div>
 
-
+#### Configurações de Tempo
+<p> 
+  O PomoApp possui uma rota '/configurations' que permite que o usuário configure os tempos de Pomodoro conforme desejar que pode ser acessada no cabeçalho da página. 
+</p>
+<div align="center">
+  <img alt="Rotas" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/f2925c78-ec76-45da-8975-c6c717d195ee" />
+</div>
+<p> 
+  Antes de mudar de rota, um alerta do Sweet Alert surge, informando que caso as configurações forem acessadas, o timer de Pomodoro será reiniciado. Sendo assim, o usuário deve confirmar nos botões se quer continuar com a ação ou não. 
+</p>
+<div align="center">
+  <img alt="Confirmação" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/23ccccdf-607e-4a96-b476-d44b310dc8ae" />
+</div>
+<p> 
+  Acessando a rota de Configurações, o usuário pode alterar os tempos de Pomodoro nas caixas de texto, sendo necessário informá-los em segundos. Salvando as alterações, os dados são gravados no localStorage do navegador e consumidos pela rota da página inicial 
+</p>
+<div align="center">
+  <img alt="Configurações" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/b5a13153-cec0-4003-8ed4-a860769ead21" />
+  <img alt="localStorage" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/323ba20a-b57d-4877-84cf-3fb35fd35051" />
+  <img alt="Dados Consumidos" src="https://github.com/lucassmaniotto/Pomodoro/assets/101435037/8e1c96ac-ffa5-4db0-bfbf-e7c9d3639208" />
+</div>
