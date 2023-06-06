@@ -1,4 +1,4 @@
-export default function searchLocalStorage(
+function searchLocalStorageOrReturnDefaultValue(
   key: string,
   defaultValue: number,
 ): number {
@@ -6,3 +6,11 @@ export default function searchLocalStorage(
   if (storedValue) return parseInt(storedValue);
   return defaultValue;
 }
+
+function returnFromLocalStorage(key: string): number | null {
+  const data = localStorage.getItem(key);
+  if (data) return parseInt(data);
+  return null;
+}
+
+export { searchLocalStorageOrReturnDefaultValue, returnFromLocalStorage };

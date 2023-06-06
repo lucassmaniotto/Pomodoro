@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import searchLocalStorage from '../../util/search-localStorage';
+import { searchLocalStorageOrReturnDefaultValue } from '../../util/search-localStorage';
 
 import { Button } from '../../components/Button';
 import ConfigurationField from '../../components/ConfigurationField';
@@ -8,13 +8,13 @@ import './styles.css';
 
 export default function Configurations(): JSX.Element {
   const [pomodoroTime, setPomodoroTime] = useState<number>(
-    searchLocalStorage('pomodoroTime', 1500),
+    searchLocalStorageOrReturnDefaultValue('pomodoroTime', 1500),
   );
   const [shortRestTime, setShortRestTime] = useState<number>(
-    searchLocalStorage('shortRestTime', 300),
+    searchLocalStorageOrReturnDefaultValue('shortRestTime', 300),
   );
   const [longRestTime, setLongRestTime] = useState<number>(
-    searchLocalStorage('longRestTime', 900),
+    searchLocalStorageOrReturnDefaultValue('longRestTime', 900),
   );
 
   const handleSaveConfigurations = (): void => {
