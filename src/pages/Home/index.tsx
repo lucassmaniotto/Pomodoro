@@ -3,13 +3,13 @@ import { Pomodoro } from '../../components/Pomodoro';
 import searchLocalStorage from '../../util/search-localStorage';
 
 export default function Home() {
-  const [pomodoroTime, setPomodoroTime] = useState(
+  const [pomodoroTime, setPomodoroTime] = useState<number>(
     searchLocalStorage('pomodoroTime', 1500),
   );
-  const [shortRestTime, setShortRestTime] = useState(
+  const [shortRestTime, setShortRestTime] = useState<number>(
     searchLocalStorage('shortRestTime', 300),
   );
-  const [longRestTime, setLongRestTime] = useState(
+  const [longRestTime, setLongRestTime] = useState<number>(
     searchLocalStorage('longRestTime', 900),
   );
 

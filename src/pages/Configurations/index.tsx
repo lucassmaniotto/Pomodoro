@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import searchLocalStorage from '../../util/search-localStorage';
-import { Button } from '../../components/Button';
 
-import './styles.css';
+import { Button } from '../../components/Button';
 import ConfigurationField from '../../components/ConfigurationField';
 
-export default function Configurations() {
-  const [pomodoroTime, setPomodoroTime] = useState(
+import './styles.css';
+
+export default function Configurations(): JSX.Element {
+  const [pomodoroTime, setPomodoroTime] = useState<number>(
     searchLocalStorage('pomodoroTime', 1500),
   );
-  const [shortRestTime, setShortRestTime] = useState(
+  const [shortRestTime, setShortRestTime] = useState<number>(
     searchLocalStorage('shortRestTime', 300),
   );
-  const [longRestTime, setLongRestTime] = useState(
+  const [longRestTime, setLongRestTime] = useState<number>(
     searchLocalStorage('longRestTime', 900),
   );
 
-  const handleSaveConfigurations = () => {
-    localStorage.setItem('pomodoroTime', pomodoroTime);
-    localStorage.setItem('shortRestTime', shortRestTime);
-    localStorage.setItem('longRestTime', longRestTime);
+  const handleSaveConfigurations = (): void => {
+    localStorage.setItem('pomodoroTime', String(pomodoroTime));
+    localStorage.setItem('shortRestTime', String(shortRestTime));
+    localStorage.setItem('longRestTime', String(longRestTime));
   };
 
   return (
