@@ -4,7 +4,7 @@ Aplicativo Web que implementa a técnica do Pomodoro, controlando seus ciclos e 
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
-| :sparkles: Nome        | **PomoApp**
+| :sparkles: Nome        | **PomoApp 🍅**
 | :label: Tecnologias | react, typescript, html5, css3, vscode, eslint, prettier
 | :rocket: URL         | [https://pomodoro-lucassmaniotto.vercel.app/](https://pomodoro-lucassmaniotto.vercel.app/)
 | 🖥 Curso    | https://www.udemy.com/course/curso-de-javascript-moderno-do-basico-ao-avancado/
